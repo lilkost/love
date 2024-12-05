@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Unbounded:wght@200..900&display=swap');
+
+:root {
+    --ff: "Unbounded", serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 100%;
+    width: 100%;
+    min-height: 100vh;
+
+    font-family: var(--ff);
+
+    background: linear-gradient(90deg, #ee7752, #e73c7e, #d52323, #c93737);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	transform: translate3d(0, 0, 0);
+}
+
+ 
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.wrapper {
+    max-width: 100%;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2em 1em;
+}
+
+.title {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.accordions{
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.accordion_t{
+    border: 1px solid #fff;
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 1.5em;
+}
+.accordion_t:not(:last-child){
+    margin-bottom: 1em;
+}
+.accordion__top{
+    font-size: 1.3em;
+}
+
+.accordion__top{
+    position: relative;
+}
+
+.accordion__body{
+    height: 0;
+    opacity: 0;
+    transform: rotateX(90deg);
+    will-change: transform;
+    transform-origin: top center;
+
+    transition: height 600ms linear, opacity 600ms linear, transform 600ms linear;
+}
+
+.accordion_t.is-active .accordion__body{
+    height: max-content;
+    opacity: 1;
+    transform: rotateX(0deg);
+}
+
+.accordion_t.is-active .accordion__top {
+    margin-bottom: .5em;
+}
